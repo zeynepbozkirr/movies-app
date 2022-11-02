@@ -6,12 +6,12 @@ const Movies = () => {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "769a84efb3msh8f59bd4c654c15fp105b18jsnaf8ceb6a4a81",
-      "X-RapidAPI-Host": "movie-details1.p.rapidapi.com",
+      "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
     },
   };
 
   fetch(
-    "https://movie-details1.p.rapidapi.com/imdb_api/movie?id=tt1375666",
+    "https://online-movie-database.p.rapidapi.com/auto-complete?q=game%20of%20thr",
     options
   )
     .then((response) => response.json())
