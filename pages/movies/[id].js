@@ -1,4 +1,3 @@
-import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
 import { Fade } from "react-awesome-reveal";
 import { Center, Square, Circle, Image } from "@chakra-ui/react";
@@ -8,11 +7,7 @@ export default function movieDetail({ movies }) {
   console.log(movies, "detail movies");
   return (
     <Center>
-      <Flippy
-        flipOnHover={true}
-        flipDirection="horizontal"
-        // ref={ref}
-      >
+      <Flippy flipOnHover={true} flipDirection="horizontal">
         <FrontSide style={{ width: "100%", height: "100%" }}>
           <Image src={movies.image} alt={movies.name}></Image>
           <Fade>

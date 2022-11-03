@@ -1,25 +1,9 @@
 import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
-import {
-  Grid,
-  GridItem,
-  SimpleGrid,
-  Box,
-  Wrap,
-  WrapItem,
-  Image,
-} from "@chakra-ui/react";
-import Flippy, { BackSide, FrontSide } from "react-flippy";
+import { Box, Wrap, WrapItem, Image } from "@chakra-ui/react";
 
 export default function Home({ movies }) {
-  // const ref = useRef();
-
   return (
-    // <Flippy
-    //   flipOnHover={true}
-    //   flipDirection="horizontal"
-    //   // ref={ref}
-    // >
     <Wrap spacing="20px">
       {movies.results.map((mov) => (
         <WrapItem
@@ -35,7 +19,6 @@ export default function Home({ movies }) {
         </WrapItem>
       ))}
     </Wrap>
-    // </Flippy>
   );
 }
 export async function getStaticProps() {
