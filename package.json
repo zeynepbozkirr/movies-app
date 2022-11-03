@@ -21,6 +21,7 @@
     "react-awesome-reveal": "^4.1.0",
     "react-dom": "18.2.0",
     "react-flippy": "^1.1.0",
+    "react-spring-dnd": "^0.2.0",
     "react-stack-cards": "^1.0.8",
     "slug": "^8.2.2"
   },
