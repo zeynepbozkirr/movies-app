@@ -1,20 +1,25 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Movies from "../component";
 import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
-import slug from "slug";
+import {
+  Grid,
+  GridItem,
+  SimpleGrid,
+  Box,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 
 export default function Home({ movies }) {
   return (
-    <div>
+    <Wrap spacing="30px">
       {movies.results.map((mov) => (
-        <Link href="/movies/[id]" as={`/movies/${mov.id}`}>
-          <img src={mov.image} alt="image"></img>
-        </Link>
+        <WrapItem>
+          <Link href="/movies/[id]" as={`/movies/${mov.id}`}>
+            <img src={mov.image} alt="image"></img>
+          </Link>
+        </WrapItem>
       ))}
-    </div>
+    </Wrap>
   );
 }
 export async function getStaticProps() {

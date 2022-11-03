@@ -1,9 +1,16 @@
 import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
+import { Fade } from "react-awesome-reveal";
 
 export default function movieDetail({ movies }) {
   console.log(movies, "detail movies");
-  return <div>{movies.name}</div>;
+  return (
+    <div>
+      <Fade>
+        <p> {movies.name}</p>
+      </Fade>
+    </div>
+  );
 }
 
 export async function getStaticPaths() {
