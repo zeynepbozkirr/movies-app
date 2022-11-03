@@ -2,37 +2,25 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Movies from "../component";
+import Link from "next/link";
+import unfetch from "isomorphic-unfetch";
+import slug from "slug";
 
 export default function Home({ movies }) {
-  console.log(movies, "sss");
-
+  console.log(movies);
   return (
-    <div className={styles.container}>
-      {/*<Movies />*/}
-      {movies.results.map((a) => (
-        <img src={a.image} />
+    <div>
+      {movies.results.map((mov) => (
+        <li>
+          <Link href={`/movies/${mov.id}`}>mov.name</Link>
+        </li>
       ))}
-      ss
     </div>
   );
 }
 export async function getStaticProps() {
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "769a84efb3msh8f59bd4c654c15fp105b18jsnaf8ceb6a4a81",
-  //     "X-RapidAPI-Host": "movie-quote.p.rapidapi.com",
-  //   },
-  // };
-  //
-  // const movies = await fetch(
-  //   "https://movie-quote.p.rapidapi.com/movie/so%20far%20so%20good",
-  //   options
-  // ).then((response) => response.json());
-
-  const movies = await fetch("https://rickandmortyapi.com/api/character").then(
-    (response) => response.json()
-  );
+  const res = await fetch("https://rickandmortyapi.com/api/character/");
+  const movies = await res.json();
 
   return {
     props: {
