@@ -7,19 +7,18 @@ import unfetch from "isomorphic-unfetch";
 import slug from "slug";
 
 export default function Home({ movies }) {
-  console.log(movies);
   return (
     <div>
       {movies.results.map((mov) => (
-        <li>
-          <Link href={`/movies/${mov.id}`}>mov.name</Link>
-        </li>
+        <Link href="/movies/[id]" as={`/movies/${mov.id}`}>
+          <img src={mov.image} alt="image"></img>
+        </Link>
       ))}
     </div>
   );
 }
 export async function getStaticProps() {
-  const res = await fetch("https://rickandmortyapi.com/api/character/");
+  const res = await unfetch("https://rickandmortyapi.com/api/character/");
   const movies = await res.json();
 
   return {
