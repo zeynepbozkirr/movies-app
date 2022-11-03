@@ -9,24 +9,33 @@ import {
   WrapItem,
   Image,
 } from "@chakra-ui/react";
-import { useRef } from "react";
-import Flippy, { FrontSide, BackSide } from "react-flippy";
+import Flippy, { BackSide, FrontSide } from "react-flippy";
 
 export default function Home({ movies }) {
   // const ref = useRef();
 
   return (
-    <div>
-      <Wrap spacing="30px">
-        {movies.results.map((mov) => (
-          <WrapItem>
-            <Link href="/movies/[id]" as={`/movies/${mov.id}`}>
-              <Image src={mov.image} alt={mov.name}></Image>
-            </Link>
-          </WrapItem>
-        ))}
-      </Wrap>
-    </div>
+    // <Flippy
+    //   flipOnHover={true}
+    //   flipDirection="horizontal"
+    //   // ref={ref}
+    // >
+    <Wrap spacing="20px">
+      {movies.results.map((mov) => (
+        <WrapItem
+          style={{
+            height: "154px",
+            width: "154px",
+            border: " 2px solid  ",
+          }}
+        >
+          <Link href="/movies/[id]" as={`/movies/${mov.id}`}>
+            <Image height="150" src={mov.image} alt={mov.name}></Image>
+          </Link>
+        </WrapItem>
+      ))}
+    </Wrap>
+    // </Flippy>
   );
 }
 export async function getStaticProps() {

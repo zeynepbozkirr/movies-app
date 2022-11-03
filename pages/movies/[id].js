@@ -1,8 +1,8 @@
 import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
 import { Fade } from "react-awesome-reveal";
-import Flippy, { BackSide, FrontSide } from "react-flippy";
 import { Center, Square, Circle, Image } from "@chakra-ui/react";
+import Flippy, { BackSide, FrontSide } from "react-flippy";
 
 export default function movieDetail({ movies }) {
   console.log(movies, "detail movies");
@@ -20,9 +20,11 @@ export default function movieDetail({ movies }) {
           </Fade>
         </FrontSide>
         <BackSide>
-          <p>{movies.name}</p>
-          <p>{movies.created}</p>
-          <p>{movies.gender}</p>
+          <Fade>
+            <p>{movies.name}</p>
+            <p>{movies.created}</p>
+            <p>{movies.gender}</p>
+          </Fade>
         </BackSide>
       </Flippy>
     </Center>
