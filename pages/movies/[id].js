@@ -1,15 +1,27 @@
 import Link from "next/link";
 import unfetch from "isomorphic-unfetch";
 import { Fade } from "react-awesome-reveal";
+import Flippy, { BackSide, FrontSide } from "react-flippy";
+import { Center, Square, Circle } from "@chakra-ui/react";
 
 export default function movieDetail({ movies }) {
   console.log(movies, "detail movies");
   return (
-    <div>
-      <Fade>
-        <p> {movies.name}</p>
-      </Fade>
-    </div>
+    <Center>
+      <Flippy
+        flipOnHover={true}
+        flipDirection="horizontal"
+        // ref={ref}
+        style={{ width: "300px", height: "300px" }}
+      >
+        <FrontSide>
+          <Fade>
+            <p> {movies.name}</p>
+          </Fade>
+        </FrontSide>
+        <BackSide> aa</BackSide>
+      </Flippy>
+    </Center>
   );
 }
 
